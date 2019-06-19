@@ -1,0 +1,20 @@
+<article class="info">
+    <h2 class="info__title">Description</h2>
+</article>
+<article class="people">
+    <div class="people__list">
+        <h2>{{title}}</h2>
+        {{#each people}}
+        <div class="card list__person">
+            <div class="card-body">
+                <h4 class="person__name">{{firstName}} {{secondName}} {{patronymic}}</h4>
+                <span class="person__description">{{description}}</span>
+            </div>
+        </div>
+        {{/each}}
+        <form action="/people/add" method="GET">
+            <button type="submit" class="btn btn-info"><i class="fas fa-plus"></i> Add Person</button>
+        </form>
+    </div>
+</article>
+<script src="/people/personList.js"></script>
