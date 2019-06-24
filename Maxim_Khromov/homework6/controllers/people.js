@@ -1,4 +1,3 @@
- const request = require('request');
  const express = require('express');
  const router = express.Router();
  const mongoose = require('mongoose');
@@ -33,10 +32,12 @@
 
  function insertRecord(req, res) {
      const person = new Person();
-     person.firstName = req.body.firstName;
-     person.secondName = req.body.secondName;
-     person.patronymic = req.body.patronymic;
-     person.description = req.body.description;
+
+     person.firstName = (req.body.firstName == '') ? undefined : req.body.firstName;
+     person.secondName = (req.body.secondName == '') ? undefined : req.body.secondName;
+     person.patronymic = (req.body.patronymic == '') ? undefined : req.body.patronymic;
+     person.description = (req.body.description == '') ? undefined : req.body.description;
+
      person.save((err, doc) => {
          if (!err) {
              console.log(person);
