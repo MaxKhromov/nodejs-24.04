@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const personSchema = new mongoose.Schema({
     secondName: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     firstName: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     patronymic: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     description: {
         type: String,

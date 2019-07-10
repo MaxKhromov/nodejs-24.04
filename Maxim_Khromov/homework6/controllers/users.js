@@ -3,11 +3,20 @@
  const mongoose = require('mongoose');
  const User = mongoose.model('User');
  const bcrypt = require('bcryptjs');
+ const passport = require('passport');
 
  router.get('/login', (req, res) => {
      res.render('./users/login', {
          title: 'Login',
      });
+ });
+
+ router.post('/login', (req, res, next) => {
+     passport.authenticate('local', {
+         successRedirect: '/people',
+         failureRedirect: '/users/login',
+         failureFlash: true,
+     })(req, res, next);
  });
 
  router.get('/register', (req, res) => {
@@ -98,6 +107,7 @@
                          //Save user
                          newUser.save()
                              .then(user => {
+                                 req.flash('success_msg', 'Congratulations! You are now registered and can log in!');
                                  res.redirect('/users/login');
                              })
                              .catch(err => console.log(err));

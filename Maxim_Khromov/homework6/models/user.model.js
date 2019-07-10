@@ -3,24 +3,22 @@ const userSchema = new mongoose.Schema({
     userName: {
         type: String,
         required: true,
-        default: 'Нет информации',
     },
     password: {
         type: String,
         required: true,
-        default: 'Нет информации',
     },
     secondName: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     firstName: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     patronymic: {
         type: String,
-        default: 'Нет информации',
+        default: '',
     },
     description: {
         type: String,
