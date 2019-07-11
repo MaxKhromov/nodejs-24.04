@@ -75,7 +75,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/views/')));
 /* app.use(bodyParser.json()); */
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 //Express Session
@@ -85,7 +85,7 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-//Express pasport
+//Express passport
 app.use(passport.initialize());
 app.use(passport.session());
 

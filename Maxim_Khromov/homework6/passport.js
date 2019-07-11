@@ -3,15 +3,16 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 //Load User Model
-const User = require('./models/user.model');
+const User = mongoose.model('User');
 
 module.exports = function (passport) {
     passport.use(new LocalStrategy({
-        userName: 'userName'
+        usernameField: 'userName',
+        passwordField: 'password',
     }, (userName, password, done) => {
         //Match User
         User.findOne({
-                userName: userName
+                userName: userName,
             })
             .then(user => {
                 if (!user) {
@@ -34,7 +35,6 @@ module.exports = function (passport) {
             })
             .catch(err => console.log(err));
     }));
-
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });

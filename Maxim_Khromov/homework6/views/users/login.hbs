@@ -1,5 +1,4 @@
 <h2>{{title}}</h2>
-{{>messages}}
 <form method="POST" action="/users/login" autocomplete="off">
     <div class="form-group">
         <label for="">User Name</label>
@@ -9,6 +8,7 @@
         <label for="">Password</label>
         <input type="password" class="form-control" name="password" placeholder="Password">
     </div>
+    {{>messages}}
     <div class="form-group">
         <button type="submit" class="btn btn-info"><i class="fas fa-database"></i> Login</button>
     </div>
