@@ -19,6 +19,12 @@
      })(req, res, next);
  });
 
+ router.get('/logout', (req, res) => {
+     req.logout();
+     req.flash('success_msg', 'You are loged out');
+     res.redirect('/users/login');
+ });
+
  router.get('/register', (req, res) => {
      res.render('./users/register', {
          title: 'Register',

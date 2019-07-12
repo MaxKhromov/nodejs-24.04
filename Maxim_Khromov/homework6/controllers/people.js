@@ -2,8 +2,11 @@
  const router = express.Router();
  const mongoose = require('mongoose');
  const Person = mongoose.model('Person');
+ const {
+     ensureAuthenticated
+ } = require('../config/auth');
 
- router.get('/', (req, res) => {
+ router.get('/', ensureAuthenticated, (req, res) => {
      Person.find({
          isDeleted: false,
      }, (err, docs) => {

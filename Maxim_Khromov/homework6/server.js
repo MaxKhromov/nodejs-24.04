@@ -7,8 +7,8 @@ const hbs = require('express-handlebars');
 const path = require('path');
 const passport = require('passport');
 
-const config = require('./config');
-require('./passport')(passport);
+const config = require('./config/config');
+require('./config/passport')(passport);
 
 //Create the app
 const app = express();
