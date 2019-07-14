@@ -2,6 +2,38 @@ body {
   margin: 0;
   padding: 0; }
 
+.header {
+  color: #004f7e; }
+
+.header__logo {
+  width: 100px;
+  height: 100px;
+  background-image: url(../img/logo.png);
+  background-size: cover;
+  background-position: center; }
+
+.nav__item {
+  margin: 10px 0 10px 0;
+  /* padding: 10px 0 10px 0; */ }
+
+.header__profile {
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #004f7e;
+  padding: 0;
+  border: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  background-color: #ccc; }
+
+.header__profile:focus {
+  outline: none; }
+
+.content {
+  margin: 30px 0 30px 0; }
+
 .list__person {
   margin: 10px 0 20px 0; }
 

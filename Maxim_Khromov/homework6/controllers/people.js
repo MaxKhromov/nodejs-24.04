@@ -11,10 +11,13 @@
          isDeleted: false,
      }, (err, docs) => {
          if (!err) {
+
              res.render('./people/personList', {
                  title: 'People list',
                  people: docs,
+                 userInfo: req.user,
              });
+
          } else {
              console.error(`Error in receiving people: ${err}`);
          }
@@ -24,6 +27,7 @@
  router.get('/add', (req, res) => {
      res.render('./people/personAddOrEdit', {
          title: 'a guy with a buttle in the ass',
+
      });
  });
 

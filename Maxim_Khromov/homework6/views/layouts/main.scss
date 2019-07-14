@@ -1,12 +1,55 @@
+$main_text_color: #004f7e;
+
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  color: $main_text_color;
+}
+
+.header__logo {
+  width: 100px;
+  height: 100px;
+  background-image: url(../img/logo.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.header__nav {
+}
+
+.nav__item {
+  margin: 10px 0 10px 0;
+  /* padding: 10px 0 10px 0; */
+}
+
+.header__profile {
+  font-weight: 600;
+  font-size: 1.5em;
+  color: $main_text_color;
+  padding: 0;
+  border: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  background-color: #ccc;
+}
+
+.header__profile:focus {
+  outline: none;
+}
+
+.content {
+  margin: 30px 0 30px 0;
 }
 
 .list__person {
-    margin: 10px 0 20px 0;
+  margin: 10px 0 20px 0;
 }
 
 .person__description {
-    margin: 0;
+  margin: 0;
 }

@@ -1,0 +1,33 @@
+<div class="row header align-items-center justify-content-around border-bottom">
+    <div class="header__logo col-auto">
+    </div>
+    <div class="header__nav col-12 col-sm-auto">
+        <div class="row">
+            <div class="nav__item text-wrap col-auto"><a href="/people" class="">Люди</a></div>
+            <div class="nav__item text-wrap col-auto">Новости</div>
+            <div class="nav__item text-wrap col-auto">Мое древо</div>
+            <div class="nav__item text-wrap col-auto">Пункт меню 4</div>
+            <div class="nav__item text-wrap col-auto">Пункт меню 5</div>
+        </div>
+    </div>
+    <div class="right-header-wrapper col-auto">
+        {{#if userInfo}}
+        <div class="btn-group">
+            <button type="button" class="header__profile" id="avatar" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                {{userInfo.initials}}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Личный кабинет</a>
+                <a class="dropdown-item disabled" href="#">Мои друзья</a>
+                <a class="dropdown-item disabled" href="#">Сообщения</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/users/logout">Выйти</a>
+            </div>
+        </div>
+        {{else}}
+        <div class="nav__item text-wrap col-auto"><a href="/users/register" class="">Регистрация</a></div>
+        <div class="nav__item text-wrap col-auto"><a href="/users/login" class="">Войти</a></div>
+        {{/if}}
+    </div>
+</div>

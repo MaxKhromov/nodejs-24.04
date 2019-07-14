@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: 'Нет информации',
     },
+    initials: {
+        type: String,
+    },
     isDeleted: {
         type: Boolean,
         default: false,

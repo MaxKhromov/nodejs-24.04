@@ -5,10 +5,17 @@
  const bcrypt = require('bcryptjs');
  const passport = require('passport');
 
+ //ROUTES
+
  router.get('/login', (req, res) => {
-     res.render('./users/login', {
-         title: 'Login',
-     });
+     if (req.user) {
+         res.redirect('/users/logout')
+     } else {
+         res.render('./users/login', {
+             title: 'Login',
+             userInfo: req.user,
+         });
+     }
  });
 
  router.post('/login', (req, res, next) => {
@@ -26,9 +33,13 @@
  });
 
  router.get('/register', (req, res) => {
-     res.render('./users/register', {
-         title: 'Register',
-     });
+     if (req.user) {
+         res.redirect('/users/logout')
+     } else {
+         res.render('./users/register', {
+             title: 'Register',
+         });
+     }
  });
 
  router.post('/register', (req, res) => {
@@ -39,7 +50,8 @@
          secondName,
          firstName,
          patronymic,
-         description
+         description,
+         initials,
      } = req.body;
      let errors = [];
 
@@ -103,6 +115,7 @@
                          secondName,
                          patronymic,
                          description,
+                         initials,
                      });
 
                      //Hash password
@@ -110,6 +123,8 @@
                          if (err) throw err;
                          //Set password to hashed
                          newUser.password = hash;
+                         //Set user initials
+                         newUser.initials = `${newUser.firstName.charAt(0)}${newUser.secondName.charAt(0)}`;
                          //Save user
                          newUser.save()
                              .then(user => {
