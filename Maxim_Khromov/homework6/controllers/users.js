@@ -4,6 +4,7 @@
  const User = mongoose.model('User');
  const bcrypt = require('bcryptjs');
  const passport = require('passport');
+ const upload = require('../config/multer');
 
  //ROUTES
 
@@ -50,6 +51,7 @@
          secondName,
          firstName,
          patronymic,
+         inputAvatar,
          description,
          initials,
      } = req.body;

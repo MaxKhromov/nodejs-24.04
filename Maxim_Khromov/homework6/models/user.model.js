@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
+    profilePicture: {
+
+    },
     description: {
         type: String,
         default: 'Нет информации',
