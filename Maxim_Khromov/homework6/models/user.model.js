@@ -10,18 +10,17 @@ const userSchema = new mongoose.Schema({
     },
     secondName: {
         type: String,
-        default: '',
     },
     firstName: {
         type: String,
-        default: '',
+        default: 'Анонимус'
     },
     patronymic: {
         type: String,
-        default: '',
     },
-    profilePicture: {
-
+    avatar: {
+        type: String,
+        default: '',
     },
     description: {
         type: String,

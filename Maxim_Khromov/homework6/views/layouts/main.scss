@@ -17,8 +17,7 @@ body {
   background-position: center;
 }
 
-.header__nav {
-}
+.header__nav {}
 
 .nav__item {
   margin: 10px 0 10px 0;
@@ -40,6 +39,12 @@ body {
 
 .header__profile:focus {
   outline: none;
+}
+
+.profile__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
 }
 
 .content {

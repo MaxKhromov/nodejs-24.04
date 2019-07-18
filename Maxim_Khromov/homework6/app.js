@@ -72,7 +72,7 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 //Setup the app
-app.use(express.static(path.join(__dirname, '/views/')));
+app.use(express.static(path.join(__dirname, config.staticFolderPath)));
 /* app.use(bodyParser.json()); */
 app.use(bodyParser.urlencoded({
     extended: false

@@ -4,7 +4,8 @@
  const User = mongoose.model('User');
  const bcrypt = require('bcryptjs');
  const passport = require('passport');
- const upload = require('../config/multer');
+ const uploadAvatar = require('../config/multer');
+ const config = require('../config/server');
 
  //ROUTES
 
@@ -43,7 +44,8 @@
      }
  });
 
- router.post('/register', (req, res) => {
+ router.post('/register', uploadAvatar, (req, res) => {
+     console.log(req.file);
      const {
          userName,
          password,
@@ -51,10 +53,16 @@
          secondName,
          firstName,
          patronymic,
-         inputAvatar,
          description,
          initials,
      } = req.body;
+
+     //Extract Avatar Path
+     //First 6 letters are removed because the 'views' folder is a public folder,
+     //so it's not included in the server routing and the picture won't appear to the user
+     //if you include 'views' in the path...
+     (!req.file) ? avatar = '': avatar = req.file.path.slice(config.staticFolderPath.length /* '- 1' might be needed if the static path includes aditional slash symbol*/ );
+
      let errors = [];
 
      //check required field
@@ -110,12 +118,14 @@
                          description,
                      });
                  } else {
+                     //Create User
                      const newUser = new User({
                          userName,
                          password,
                          firstName,
                          secondName,
                          patronymic,
+                         avatar,
                          description,
                          initials,
                      });

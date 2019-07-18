@@ -13,10 +13,17 @@
     <div class="right-header-wrapper col-auto">
         {{#if userInfo}}
         <div class="btn-group">
+            {{#compare userInfo.avatar '' operator="!="}}
+            <button type="button" class="header__profile" id="avatar" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img src="{{userInfo.avatar}}" alt="" class="profile__avatar">
+            </button>
+            {{else}}
             <button type="button" class="header__profile" id="avatar" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 {{userInfo.initials}}
             </button>
+            {{/compare}}
             <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="#">Личный кабинет</a>
                 <a class="dropdown-item disabled" href="#">Мои друзья</a>
